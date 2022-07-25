@@ -1,14 +1,80 @@
-﻿@import url('bootstrap.min.css');
-@import url('font-awesome.min.css');
-@import url('animate.css');
-@import url('../Plugins/aos/aos.css');
-@import url('../Plugins/FancyBox/jquery.fancybox.min.css');
-@import url('../Plugins/mdb/asset/mdb.min.css');
-@import url('../Plugins/OwlCarousel2/assets/owl.carousel.min.css');
-@import url('../Plugins/OwlCarousel2/assets/owl.theme.default.css');
+﻿/*#region header */
 
-@import 'lib/font.css';
-@import 'lib/Theme.css';
-@import 'lib/stamp.css';
-@import 'lib/fontAwsAnimation.css';
+/*#endregion */
+/*#region main */
+main {
+    min-height: 100vh;
+}
+
+    main #asideNavbar {
+        position: fixed;
+        padding: 50px;
+        z-index: 1;
+        top: 0;
+        height: 100vh;
+        width: 25vw;
+        left: -25vw;
+        transition: all 1.5s;
+    }
+
+        main #asideNavbar.on {
+            left: 0;
+            overflow: scroll;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+            main #asideNavbar.on::-webkit-scrollbar {
+                width: 0; /* Remove scrollbar space */
+                background: transparent; /* Optional: just make scrollbar invisible */
+            }
+/* Optional: show position indicator in red */
+            main #asideNavbar.on::-webkit-scrollbar-thumb {
+                background: #FF0000;
+            }
+
+        main #asideNavbar .btn-toggle-menu {
+            position: absolute;
+            right: 0;
+            transform: translateX(100%) rotate(0deg);
+            top: 0;
+            z-index:3;
+            transition: all 1.5s;
+        }
+
+        main #asideNavbar ul{}
+
+            main #asideNavbar ul li a,
+            main #asideNavbar ul li > span {
+                margin: 5px 0;
+                padding: 5px 10px;
+                border-radius: 0.25rem;
+                display: block
+            }
+
+            main #asideNavbar ul li a, main #asideNavbar ul li span{
+                color: #fff;
+                font-size: 1.15rem;
+            }
+                main #asideNavbar ul li a.active,
+                main #asideNavbar ul li:hover > a,
+                main #asideNavbar ul li:hover > span {
+                    background-color: #1266f1
+                }
+
+        main #asideNavbar .btn-toggle-menu.on {
+            transform: translateX(0) rotate(360deg);
+        }
+            /*#endregion */
+            /*#region responsive */
+            @media (max-width: 575.98px) {
+                main .table {
+        overflow-y: hidden;
+        overflow-x: auto;
+        display: block;
+    }
+
+}
+
+/*#endregion */
 

@@ -5,173 +5,99 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityType Name="Category">
+        <EntityType Name="Crop">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="CropID" />
           </Key>
-          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-          <Property Name="MainCategoryID" Type="int" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactPhoneNumber" />
-          </Key>
-          <Property Name="ContactPhoneNumber" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="Email" Type="varchar" MaxLength="255" />
-          <Property Name="MoreDetail" Type="nvarchar(max)" />
-          <Property Name="CreateTime" Type="datetime" />
-        </EntityType>
-        <EntityType Name="MainCategory">
-          <Key>
-            <PropertyRef Name="MainCategoryID" />
-          </Key>
-          <Property Name="MainCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Position" Type="int" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-          <Property Name="IsPrimary" Type="bit" />
-        </EntityType>
-        <EntityType Name="News">
-          <Key>
-            <PropertyRef Name="NewsID" />
-          </Key>
-          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="255" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="Keywords" Type="nvarchar(max)" />
-          <Property Name="CreateTime" Type="datetime" />
-          <Property Name="CreateBy" Type="nchar" MaxLength="10" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-          <Property Name="Show" Type="bit" />
-          <Property Name="Detail" Type="ntext" />
-          <Property Name="NewsCategoryID" Type="int" />
-        </EntityType>
-        <EntityType Name="NewsCategory">
-          <Key>
-            <PropertyRef Name="NewsCategoryID" />
-          </Key>
-          <Property Name="NewsCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-          <Property Name="NewsMainCategoryID" Type="int" />
-        </EntityType>
-        <EntityType Name="NewsMainCategory">
-          <Key>
-            <PropertyRef Name="NewsMainCategoryID" />
-          </Key>
-          <Property Name="NewsMainCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="BackGround" Type="nvarchar" MaxLength="255" />
-          <Property Name="OriginalPrice" Type="int" />
-          <Property Name="SalePrice" Type="int" />
-          <Property Name="Prepay" Type="int" />
-          <Property Name="Show" Type="bit" />
-          <Property Name="Choice" Type="bit" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="IsDelete" Type="bit" />
-          <Property Name="CategoryID" Type="int" />
-          <Property Name="CreateTime" Type="datetime" />
-        </EntityType>
-        <EntityType Name="ProductCost">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="VAT" Type="real" />
-          <Property Name="PhiTruocBa" Type="real" />
-          <Property Name="PhiDangKi" Type="int" />
-          <Property Name="PhiSuDungDuongBo" Type="int" />
-          <Property Name="PhiKiemDinh" Type="int" />
-          <Property Name="BaoHiemTNDS" Type="int" />
-          <Property Name="Locator" Type="int" />
-          <Property Name="TotalForRun" Type="nchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="ProductDetail">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="Detail" Type="ntext" />
-          <Property Name="CreateTime" Type="datetime" />
-          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="ProductPreview">
-          <Key>
-            <PropertyRef Name="ProductPreviewID" />
-          </Key>
-          <Property Name="ProductPreviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Link" Type="nvarchar" MaxLength="255" />
-          <Property Name="ProductID" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="FarmID" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
-        <EntityType Name="ProductRelative">
+        <EntityType Name="CropStep">
           <Key>
-            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="CropStepID" />
           </Key>
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="Keywords" Type="nvarchar(max)" />
+          <Property Name="CropStepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Evaluate" Type="ntext" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="CropID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SeedID" Type="int" />
+          <Property Name="IsDelete" Type="bit" />
         </EntityType>
-        <EntityType Name="ProductTechInfo">
+        <EntityType Name="DateStatiticProfit">
           <Key>
-            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProfitID" />
           </Key>
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="Detail" Type="ntext" />
+          <Property Name="ProfitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="CropStepID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Profit" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Note" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FarmID" />
+          </Key>
+          <Property Name="FarmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Detail" Type="nchar" MaxLength="10" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="isActive" Type="bit" />
           <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="ntext" />
           <Property Name="CreateTime" Type="datetime" />
         </EntityType>
-        <EntityType Name="Relative">
+        <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="RelativeID" />
+            <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RelativeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="NewsID" Type="int" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="Request">
+        <EntityType Name="Seed">
           <Key>
-            <PropertyRef Name="RequestID" />
+            <PropertyRef Name="SeedID" />
           </Key>
-          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="Email" Type="varchar(max)" />
-          <Property Name="Note" Type="nvarchar(max)" />
-          <Property Name="ProductID" Type="int" />
+          <Property Name="SeedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeedName" Type="nvarchar" MaxLength="255" />
+          <Property Name="SeedType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Evaluate" Type="ntext" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+          <Property Name="PlantingMonth" Type="int" />
+        </EntityType>
+        <EntityType Name="Spending">
+          <Key>
+            <PropertyRef Name="SpendingID" />
+          </Key>
+          <Property Name="SpendingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CropStepID" Type="int" />
+          <Property Name="Amount" Type="int" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="StepID" />
+          </Key>
+          <Property Name="StepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StepName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Oder" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="CropStepID" Type="int" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -189,170 +115,142 @@
           </Key>
           <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="Status" Type="bit" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Website">
-          <Key>
-            <PropertyRef Name="WebsiteID" />
-          </Key>
-          <Property Name="WebsiteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WebsiteName" Type="nvarchar" MaxLength="255" />
-          <Property Name="WebsiteFavicon" Type="nvarchar" MaxLength="255" />
-          <Property Name="WebsiteIcon" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="WebsiteDetail" Type="ntext" />
-          <Property Name="Hotline" Type="nvarchar" MaxLength="255" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
-          <Property Name="Map" Type="nvarchar(max)" />
-          <Property Name="Facebook" Type="nvarchar" MaxLength="255" />
-          <Property Name="Zalo" Type="nvarchar" MaxLength="255" />
-          <Property Name="FacebookID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Avatar" Type="nchar" MaxLength="10" />
+          <Property Name="UserRole" Type="int" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
-        <Association Name="FK_Category_MainCategory">
-          <End Role="MainCategory" Type="Self.MainCategory" Multiplicity="0..1" />
-          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+        <EntityType Name="WeatherNote">
+          <Key>
+            <PropertyRef Name="WeatherID" />
+          </Key>
+          <Property Name="WeatherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatTime" Type="nchar" MaxLength="10" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="Evaluate" Type="ntext" />
+          <Property Name="isDelete" Type="bit" />
+          <Property Name="CropStepID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Crop_Farm">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="0..1" />
+          <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="MainCategory">
-              <PropertyRef Name="MainCategoryID" />
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmID" />
             </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="MainCategoryID" />
+            <Dependent Role="Crop">
+              <PropertyRef Name="FarmID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_News_NewsCategory">
-          <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="0..1" />
-          <End Role="News" Type="Self.News" Multiplicity="*" />
+        <Association Name="FK_CropStep_Crop">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="0..1" />
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NewsCategory">
-              <PropertyRef Name="NewsCategoryID" />
+            <Principal Role="Crop">
+              <PropertyRef Name="CropID" />
             </Principal>
-            <Dependent Role="News">
-              <PropertyRef Name="NewsCategoryID" />
+            <Dependent Role="CropStep">
+              <PropertyRef Name="CropID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_NewsCategory_NewsMainCategory">
-          <End Role="NewsMainCategory" Type="Self.NewsMainCategory" Multiplicity="0..1" />
-          <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="*" />
+        <Association Name="FK_CropStep_Seed">
+          <End Role="Seed" Type="Self.Seed" Multiplicity="0..1" />
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NewsMainCategory">
-              <PropertyRef Name="NewsMainCategoryID" />
+            <Principal Role="Seed">
+              <PropertyRef Name="SeedID" />
             </Principal>
-            <Dependent Role="NewsCategory">
-              <PropertyRef Name="NewsMainCategoryID" />
+            <Dependent Role="CropStep">
+              <PropertyRef Name="SeedID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_DateStatiticProfit_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="DateStatiticProfit" Type="Self.DateStatiticProfit" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryID" />
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
             </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="CategoryID" />
+            <Dependent Role="DateStatiticProfit">
+              <PropertyRef Name="CropStepID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductCost_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductCost" Type="Self.ProductCost" Multiplicity="0..1" />
+        <Association Name="FK_Farm_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
             </Principal>
-            <Dependent Role="ProductCost">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="Farm">
+              <PropertyRef Name="CreateBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductDetail_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="0..1" />
+        <Association Name="FK_Seed_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Seed" Type="Self.Seed" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
             </Principal>
-            <Dependent Role="ProductDetail">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="Seed">
+              <PropertyRef Name="CreateBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductPreview_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="ProductPreview" Type="Self.ProductPreview" Multiplicity="*" />
+        <Association Name="FK_Spending_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="Spending" Type="Self.Spending" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
             </Principal>
-            <Dependent Role="ProductPreview">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="Spending">
+              <PropertyRef Name="CropStepID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductRelative_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductRelative" Type="Self.ProductRelative" Multiplicity="0..1" />
+        <Association Name="FK_Step_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="Step" Type="Self.Step" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
             </Principal>
-            <Dependent Role="ProductRelative">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="Step">
+              <PropertyRef Name="CropStepID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductTechInfo_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductTechInfo" Type="Self.ProductTechInfo" Multiplicity="0..1" />
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
             </Principal>
-            <Dependent Role="ProductTechInfo">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="User">
+              <PropertyRef Name="UserRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Relative_News">
-          <End Role="News" Type="Self.News" Multiplicity="0..1" />
-          <End Role="Relative" Type="Self.Relative" Multiplicity="*" />
+        <Association Name="FK_WeatherNote_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="WeatherNote" Type="Self.WeatherNote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="News">
-              <PropertyRef Name="NewsID" />
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
             </Principal>
-            <Dependent Role="Relative">
-              <PropertyRef Name="NewsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relative_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Relative" Type="Self.Relative" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Relative">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Request_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Request">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="WeatherNote">
+              <PropertyRef Name="CropStepID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -388,77 +286,352 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBModelStoreContainer">
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MainCategory" EntityType="Self.MainCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="NewsCategory" EntityType="Self.NewsCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="NewsMainCategory" EntityType="Self.NewsMainCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductCost" EntityType="Self.ProductCost" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductDetail" EntityType="Self.ProductDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductPreview" EntityType="Self.ProductPreview" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductRelative" EntityType="Self.ProductRelative" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductTechInfo" EntityType="Self.ProductTechInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Relative" EntityType="Self.Relative" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropStep" EntityType="Self.CropStep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DateStatiticProfit" EntityType="Self.DateStatiticProfit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seed" EntityType="Self.Seed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spending" EntityType="Self.Spending" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Step" EntityType="Self.Step" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Website" EntityType="Self.Website" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Category_MainCategory" Association="Self.FK_Category_MainCategory">
-            <End Role="MainCategory" EntitySet="MainCategory" />
-            <End Role="Category" EntitySet="Category" />
+          <EntitySet Name="WeatherNote" EntityType="Self.WeatherNote" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Crop_Farm" Association="Self.FK_Crop_Farm">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="Crop" EntitySet="Crop" />
           </AssociationSet>
-          <AssociationSet Name="FK_News_NewsCategory" Association="Self.FK_News_NewsCategory">
-            <End Role="NewsCategory" EntitySet="NewsCategory" />
-            <End Role="News" EntitySet="News" />
+          <AssociationSet Name="FK_CropStep_Crop" Association="Self.FK_CropStep_Crop">
+            <End Role="Crop" EntitySet="Crop" />
+            <End Role="CropStep" EntitySet="CropStep" />
           </AssociationSet>
-          <AssociationSet Name="FK_NewsCategory_NewsMainCategory" Association="Self.FK_NewsCategory_NewsMainCategory">
-            <End Role="NewsMainCategory" EntitySet="NewsMainCategory" />
-            <End Role="NewsCategory" EntitySet="NewsCategory" />
+          <AssociationSet Name="FK_CropStep_Seed" Association="Self.FK_CropStep_Seed">
+            <End Role="Seed" EntitySet="Seed" />
+            <End Role="CropStep" EntitySet="CropStep" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Product" EntitySet="Product" />
+          <AssociationSet Name="FK_DateStatiticProfit_CropStep" Association="Self.FK_DateStatiticProfit_CropStep">
+            <End Role="CropStep" EntitySet="CropStep" />
+            <End Role="DateStatiticProfit" EntitySet="DateStatiticProfit" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductCost_Product" Association="Self.FK_ProductCost_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductCost" EntitySet="ProductCost" />
+          <AssociationSet Name="FK_Farm_User" Association="Self.FK_Farm_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Farm" EntitySet="Farm" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductDetail_Product" Association="Self.FK_ProductDetail_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductDetail" EntitySet="ProductDetail" />
+          <AssociationSet Name="FK_Seed_User" Association="Self.FK_Seed_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Seed" EntitySet="Seed" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductPreview_Product" Association="Self.FK_ProductPreview_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductPreview" EntitySet="ProductPreview" />
+          <AssociationSet Name="FK_Spending_CropStep" Association="Self.FK_Spending_CropStep">
+            <End Role="CropStep" EntitySet="CropStep" />
+            <End Role="Spending" EntitySet="Spending" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductRelative_Product" Association="Self.FK_ProductRelative_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductRelative" EntitySet="ProductRelative" />
+          <AssociationSet Name="FK_Step_CropStep" Association="Self.FK_Step_CropStep">
+            <End Role="CropStep" EntitySet="CropStep" />
+            <End Role="Step" EntitySet="Step" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductTechInfo_Product" Association="Self.FK_ProductTechInfo_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductTechInfo" EntitySet="ProductTechInfo" />
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_Relative_News" Association="Self.FK_Relative_News">
-            <End Role="News" EntitySet="News" />
-            <End Role="Relative" EntitySet="Relative" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relative_Product" Association="Self.FK_Relative_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Relative" EntitySet="Relative" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Request_Product" Association="Self.FK_Request_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Request" EntitySet="Request" />
+          <AssociationSet Name="FK_WeatherNote_CropStep" Association="Self.FK_WeatherNote_CropStep">
+            <End Role="CropStep" EntitySet="CropStep" />
+            <End Role="WeatherNote" EntitySet="WeatherNote" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Crop">
+          <Key>
+            <PropertyRef Name="CropID" />
+          </Key>
+          <Property Name="CropID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="FarmID" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Farm" Relationship="Self.FK_Crop_Farm" FromRole="Crop" ToRole="Farm" />
+          <NavigationProperty Name="CropSteps" Relationship="Self.FK_CropStep_Crop" FromRole="Crop" ToRole="CropStep" />
+        </EntityType>
+        <EntityType Name="CropStep">
+          <Key>
+            <PropertyRef Name="CropStepID" />
+          </Key>
+          <Property Name="CropStepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Evaluate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="CropID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SeedID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <NavigationProperty Name="Crop" Relationship="Self.FK_CropStep_Crop" FromRole="CropStep" ToRole="Crop" />
+          <NavigationProperty Name="Seed" Relationship="Self.FK_CropStep_Seed" FromRole="CropStep" ToRole="Seed" />
+          <NavigationProperty Name="DateStatiticProfits" Relationship="Self.FK_DateStatiticProfit_CropStep" FromRole="CropStep" ToRole="DateStatiticProfit" />
+          <NavigationProperty Name="Spendings" Relationship="Self.FK_Spending_CropStep" FromRole="CropStep" ToRole="Spending" />
+          <NavigationProperty Name="WeatherNotes" Relationship="Self.FK_WeatherNote_CropStep" FromRole="CropStep" ToRole="WeatherNote" />
+          <NavigationProperty Name="Steps" Relationship="DBModel.FK_Step_CropStep" FromRole="CropStep" ToRole="Step" />
+        </EntityType>
+        <EntityType Name="DateStatiticProfit">
+          <Key>
+            <PropertyRef Name="ProfitID" />
+          </Key>
+          <Property Name="ProfitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropStepID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Profit" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropStep" Relationship="Self.FK_DateStatiticProfit_CropStep" FromRole="DateStatiticProfit" ToRole="CropStep" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FarmID" />
+          </Key>
+          <Property Name="FarmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Crops" Relationship="Self.FK_Crop_Farm" FromRole="Farm" ToRole="Crop" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Farm_User" FromRole="Farm" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Seed">
+          <Key>
+            <PropertyRef Name="SeedID" />
+          </Key>
+          <Property Name="SeedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeedName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SeedType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Evaluate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlantingMonth" Type="Int32" />
+          <NavigationProperty Name="CropSteps" Relationship="Self.FK_CropStep_Seed" FromRole="Seed" ToRole="CropStep" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Seed_User" FromRole="Seed" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Spending">
+          <Key>
+            <PropertyRef Name="SpendingID" />
+          </Key>
+          <Property Name="SpendingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CropStepID" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <NavigationProperty Name="CropStep" Relationship="Self.FK_Spending_CropStep" FromRole="Spending" ToRole="CropStep" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserRole" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Farms" Relationship="Self.FK_Farm_User" FromRole="User" ToRole="Farm" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Seeds" Relationship="Self.FK_Seed_User" FromRole="User" ToRole="Seed" />
+        </EntityType>
+        <EntityType Name="WeatherNote">
+          <Key>
+            <PropertyRef Name="WeatherID" />
+          </Key>
+          <Property Name="WeatherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="Evaluate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isDelete" Type="Boolean" />
+          <Property Name="CropStepID" Type="Int32" />
+          <NavigationProperty Name="CropStep" Relationship="Self.FK_WeatherNote_CropStep" FromRole="WeatherNote" ToRole="CropStep" />
+        </EntityType>
+        <Association Name="FK_Crop_Farm">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="0..1" />
+          <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmID" />
+            </Principal>
+            <Dependent Role="Crop">
+              <PropertyRef Name="FarmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CropStep_Crop">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="0..1" />
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropID" />
+            </Principal>
+            <Dependent Role="CropStep">
+              <PropertyRef Name="CropID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CropStep_Seed">
+          <End Role="Seed" Type="Self.Seed" Multiplicity="0..1" />
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seed">
+              <PropertyRef Name="SeedID" />
+            </Principal>
+            <Dependent Role="CropStep">
+              <PropertyRef Name="SeedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DateStatiticProfit_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="DateStatiticProfit" Type="Self.DateStatiticProfit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
+            </Principal>
+            <Dependent Role="DateStatiticProfit">
+              <PropertyRef Name="CropStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Spending_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="Spending" Type="Self.Spending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
+            </Principal>
+            <Dependent Role="Spending">
+              <PropertyRef Name="CropStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeatherNote_CropStep">
+          <End Role="CropStep" Type="Self.CropStep" Multiplicity="0..1" />
+          <End Role="WeatherNote" Type="Self.WeatherNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
+            </Principal>
+            <Dependent Role="WeatherNote">
+              <PropertyRef Name="CropStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Farm_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Farm">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seed_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Seed" Type="Self.Seed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Seed">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Crops" EntityType="Self.Crop" />
+          <EntitySet Name="CropSteps" EntityType="Self.CropStep" />
+          <EntitySet Name="DateStatiticProfits" EntityType="Self.DateStatiticProfit" />
+          <EntitySet Name="Farms" EntityType="Self.Farm" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Seeds" EntityType="Self.Seed" />
+          <EntitySet Name="Spendings" EntityType="Self.Spending" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="WeatherNotes" EntityType="Self.WeatherNote" />
+          <AssociationSet Name="FK_Crop_Farm" Association="Self.FK_Crop_Farm">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="Crop" EntitySet="Crops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CropStep_Crop" Association="Self.FK_CropStep_Crop">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="CropStep" EntitySet="CropSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CropStep_Seed" Association="Self.FK_CropStep_Seed">
+            <End Role="Seed" EntitySet="Seeds" />
+            <End Role="CropStep" EntitySet="CropSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DateStatiticProfit_CropStep" Association="Self.FK_DateStatiticProfit_CropStep">
+            <End Role="CropStep" EntitySet="CropSteps" />
+            <End Role="DateStatiticProfit" EntitySet="DateStatiticProfits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spending_CropStep" Association="Self.FK_Spending_CropStep">
+            <End Role="CropStep" EntitySet="CropSteps" />
+            <End Role="Spending" EntitySet="Spendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeatherNote_CropStep" Association="Self.FK_WeatherNote_CropStep">
+            <End Role="CropStep" EntitySet="CropSteps" />
+            <End Role="WeatherNote" EntitySet="WeatherNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Farm_User" Association="Self.FK_Farm_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Farm" EntitySet="Farms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seed_User" Association="Self.FK_Seed_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Seed" EntitySet="Seeds" />
+          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -489,70 +662,10 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Contacts" EntityType="DBModel.Contact" />
-          <EntitySet Name="MainCategories" EntityType="DBModel.MainCategory" />
-          <EntitySet Name="NewsCategories" EntityType="DBModel.NewsCategory" />
-          <EntitySet Name="NewsMainCategories" EntityType="DBModel.NewsMainCategory" />
-          <EntitySet Name="Products" EntityType="DBModel.Product" />
-          <EntitySet Name="ProductCosts" EntityType="DBModel.ProductCost" />
-          <EntitySet Name="ProductDetails" EntityType="DBModel.ProductDetail" />
-          <EntitySet Name="ProductPreviews" EntityType="DBModel.ProductPreview" />
-          <EntitySet Name="Relatives" EntityType="DBModel.Relative" />
-          <EntitySet Name="Requests" EntityType="DBModel.Request" />
-          <EntitySet Name="sysdiagrams" EntityType="DBModel.sysdiagram" />
-          <EntitySet Name="Users" EntityType="DBModel.User" />
-          <EntitySet Name="Websites" EntityType="DBModel.Website" />
-          <AssociationSet Name="FK_NewsCategory_NewsMainCategory" Association="DBModel.FK_NewsCategory_NewsMainCategory">
-            <End Role="NewsMainCategory" EntitySet="NewsMainCategories" />
-            <End Role="NewsCategory" EntitySet="NewsCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductCost_Product" Association="DBModel.FK_ProductCost_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductCost" EntitySet="ProductCosts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductDetail_Product" Association="DBModel.FK_ProductDetail_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductDetail" EntitySet="ProductDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductPreview_Product" Association="DBModel.FK_ProductPreview_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductPreview" EntitySet="ProductPreviews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relative_Product" Association="DBModel.FK_Relative_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Relative" EntitySet="Relatives" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Request_Product" Association="DBModel.FK_Request_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Request" EntitySet="Requests" />
-          </AssociationSet>
-          <EntitySet Name="ProductRelatives" EntityType="DBModel.ProductRelative" />
-          <AssociationSet Name="FK_ProductRelative_Product" Association="DBModel.FK_ProductRelative_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductRelative" EntitySet="ProductRelatives" />
-          </AssociationSet>
-          <EntitySet Name="Categories" EntityType="DBModel.Category" />
-          <AssociationSet Name="FK_Category_MainCategory" Association="DBModel.FK_Category_MainCategory">
-            <End Role="MainCategory" EntitySet="MainCategories" />
-            <End Role="Category" EntitySet="Categories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_Category" Association="DBModel.FK_Product_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <EntitySet Name="News" EntityType="DBModel.News" />
-          <AssociationSet Name="FK_News_NewsCategory" Association="DBModel.FK_News_NewsCategory">
-            <End Role="NewsCategory" EntitySet="NewsCategories" />
-            <End Role="News" EntitySet="News" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relative_News" Association="DBModel.FK_Relative_News">
-            <End Role="News" EntitySet="News" />
-            <End Role="Relative" EntitySet="Relatives" />
-          </AssociationSet>
-          <EntitySet Name="ProductTechInfoes" EntityType="DBModel.ProductTechInfo" />
-          <AssociationSet Name="FK_ProductTechInfo_Product" Association="DBModel.FK_ProductTechInfo_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductTechInfo" EntitySet="ProductTechInfoes" />
+          <EntitySet Name="Steps" EntityType="DBModel.Step" />
+          <AssociationSet Name="FK_Step_CropStep" Association="DBModel.FK_Step_CropStep">
+            <End Role="CropStep" EntitySet="CropSteps" />
+            <End Role="Step" EntitySet="Steps" />
           </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -566,378 +679,29 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Contact">
+        <EntityType Name="Step">
           <Key>
-            <PropertyRef Name="ContactPhoneNumber" />
+            <PropertyRef Name="StepID" />
           </Key>
-          <Property Name="ContactPhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="MoreDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="MainCategory">
-          <Key>
-            <PropertyRef Name="MainCategoryID" />
-          </Key>
-          <Property Name="MainCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Position" Type="Int32" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="IsPrimary" Type="Boolean" />
-          <NavigationProperty Name="Categories" Relationship="DBModel.FK_Category_MainCategory" FromRole="MainCategory" ToRole="Category" />
-        </EntityType>
-        <EntityType Name="NewsCategory">
-          <Key>
-            <PropertyRef Name="NewsCategoryID" />
-          </Key>
-          <Property Name="NewsCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="NewsMainCategoryID" Type="Int32" />
-          <NavigationProperty Name="NewsMainCategory" Relationship="DBModel.FK_NewsCategory_NewsMainCategory" FromRole="NewsCategory" ToRole="NewsMainCategory" />
-          <NavigationProperty Name="News" Relationship="DBModel.FK_News_NewsCategory" FromRole="NewsCategory" ToRole="News" />
-        </EntityType>
-        <EntityType Name="NewsMainCategory">
-          <Key>
-            <PropertyRef Name="NewsMainCategoryID" />
-          </Key>
-          <Property Name="NewsMainCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <NavigationProperty Name="NewsCategories" Relationship="DBModel.FK_NewsCategory_NewsMainCategory" FromRole="NewsMainCategory" ToRole="NewsCategory" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="BackGround" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OriginalPrice" Type="Int32" />
-          <Property Name="SalePrice" Type="Int32" />
-          <Property Name="Prepay" Type="Int32" />
-          <Property Name="Show" Type="Boolean" />
-          <Property Name="Choice" Type="Boolean" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="CategoryID" Type="Int32" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="ProductCost" Relationship="DBModel.FK_ProductCost_Product" FromRole="Product" ToRole="ProductCost" />
-          <NavigationProperty Name="ProductDetail" Relationship="DBModel.FK_ProductDetail_Product" FromRole="Product" ToRole="ProductDetail" />
-          <NavigationProperty Name="ProductPreviews" Relationship="DBModel.FK_ProductPreview_Product" FromRole="Product" ToRole="ProductPreview" />
-          <NavigationProperty Name="Relatives" Relationship="DBModel.FK_Relative_Product" FromRole="Product" ToRole="Relative" />
-          <NavigationProperty Name="Requests" Relationship="DBModel.FK_Request_Product" FromRole="Product" ToRole="Request" />
-          <NavigationProperty Name="ProductRelative" Relationship="DBModel.FK_ProductRelative_Product" FromRole="Product" ToRole="ProductRelative" />
-          <NavigationProperty Name="Category" Relationship="DBModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="ProductTechInfo" Relationship="DBModel.FK_ProductTechInfo_Product" FromRole="Product" ToRole="ProductTechInfo" />
-        </EntityType>
-        <EntityType Name="ProductCost">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="VAT" Type="Single" />
-          <Property Name="PhiTruocBa" Type="Single" />
-          <Property Name="PhiDangKi" Type="Int32" />
-          <Property Name="PhiSuDungDuongBo" Type="Int32" />
-          <Property Name="PhiKiemDinh" Type="Int32" />
-          <Property Name="BaoHiemTNDS" Type="Int32" />
-          <Property Name="Locator" Type="Int32" />
-          <Property Name="TotalForRun" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_ProductCost_Product" FromRole="ProductCost" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="ProductDetail">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_ProductDetail_Product" FromRole="ProductDetail" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="ProductPreview">
-          <Key>
-            <PropertyRef Name="ProductPreviewID" />
-          </Key>
-          <Property Name="ProductPreviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ProductID" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_ProductPreview_Product" FromRole="ProductPreview" ToRole="Product" />
+          <Property Name="Oder" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="CropStepID" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="CropStep" Relationship="DBModel.FK_Step_CropStep" FromRole="Step" ToRole="CropStep" />
         </EntityType>
-        <EntityType Name="Relative">
-          <Key>
-            <PropertyRef Name="RelativeID" />
-          </Key>
-          <Property Name="RelativeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="NewsID" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_Relative_Product" FromRole="Relative" ToRole="Product" />
-          <NavigationProperty Name="News" Relationship="DBModel.FK_Relative_News" FromRole="Relative" ToRole="News" />
-        </EntityType>
-        <EntityType Name="Request">
-          <Key>
-            <PropertyRef Name="RequestID" />
-          </Key>
-          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProductID" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_Request_Product" FromRole="Request" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Website">
-          <Key>
-            <PropertyRef Name="WebsiteID" />
-          </Key>
-          <Property Name="WebsiteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WebsiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="WebsiteFavicon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="WebsiteIcon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="WebsiteDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Hotline" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Map" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Zalo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="FacebookID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
-        <Association Name="FK_NewsCategory_NewsMainCategory">
-          <End Type="DBModel.NewsMainCategory" Role="NewsMainCategory" Multiplicity="0..1" />
-          <End Type="DBModel.NewsCategory" Role="NewsCategory" Multiplicity="*" />
+        <Association Name="FK_Step_CropStep">
+          <End Type="DBModel.CropStep" Role="CropStep" Multiplicity="0..1" />
+          <End Type="DBModel.Step" Role="Step" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NewsMainCategory">
-              <PropertyRef Name="NewsMainCategoryID" />
+            <Principal Role="CropStep">
+              <PropertyRef Name="CropStepID" />
             </Principal>
-            <Dependent Role="NewsCategory">
-              <PropertyRef Name="NewsMainCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductCost_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DBModel.ProductCost" Role="ProductCost" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductCost">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductDetail_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DBModel.ProductDetail" Role="ProductDetail" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductDetail">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductPreview_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="0..1" />
-          <End Type="DBModel.ProductPreview" Role="ProductPreview" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductPreview">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relative_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DBModel.Relative" Role="Relative" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Relative">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Request_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="0..1" />
-          <End Type="DBModel.Request" Role="Request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Request">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ProductRelative">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_ProductRelative_Product" FromRole="ProductRelative" ToRole="Product" />
-        </EntityType>
-        <Association Name="FK_ProductRelative_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DBModel.ProductRelative" Role="ProductRelative" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductRelative">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="MainCategoryID" Type="Int32" />
-          <NavigationProperty Name="MainCategory" Relationship="DBModel.FK_Category_MainCategory" FromRole="Category" ToRole="MainCategory" />
-          <NavigationProperty Name="Products" Relationship="DBModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
-        </EntityType>
-        <Association Name="FK_Category_MainCategory">
-          <End Type="DBModel.MainCategory" Role="MainCategory" Multiplicity="0..1" />
-          <End Type="DBModel.Category" Role="Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MainCategory">
-              <PropertyRef Name="MainCategoryID" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="MainCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_Category">
-          <End Type="DBModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="DBModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="News">
-          <Key>
-            <PropertyRef Name="NewsID" />
-          </Key>
-          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <Property Name="CreateBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="Show" Type="Boolean" />
-          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NewsCategoryID" Type="Int32" />
-          <NavigationProperty Name="NewsCategory" Relationship="DBModel.FK_News_NewsCategory" FromRole="News" ToRole="NewsCategory" />
-          <NavigationProperty Name="Relatives" Relationship="DBModel.FK_Relative_News" FromRole="News" ToRole="Relative" />
-        </EntityType>
-        <Association Name="FK_News_NewsCategory">
-          <End Type="DBModel.NewsCategory" Role="NewsCategory" Multiplicity="0..1" />
-          <End Type="DBModel.News" Role="News" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NewsCategory">
-              <PropertyRef Name="NewsCategoryID" />
-            </Principal>
-            <Dependent Role="News">
-              <PropertyRef Name="NewsCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relative_News">
-          <End Type="DBModel.News" Role="News" Multiplicity="0..1" />
-          <End Type="DBModel.Relative" Role="Relative" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="News">
-              <PropertyRef Name="NewsID" />
-            </Principal>
-            <Dependent Role="Relative">
-              <PropertyRef Name="NewsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ProductTechInfo">
-          <Key>
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Product" Relationship="DBModel.FK_ProductTechInfo_Product" FromRole="ProductTechInfo" ToRole="Product" />
-        </EntityType>
-        <Association Name="FK_ProductTechInfo_Product">
-          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DBModel.ProductTechInfo" Role="ProductTechInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductTechInfo">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="Step">
+              <PropertyRef Name="CropStepID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -947,6 +711,132 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Crops">
+            <EntityTypeMapping TypeName="DBModel.Crop">
+              <MappingFragment StoreEntitySet="Crop">
+                <ScalarProperty Name="CropID" ColumnName="CropID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="FarmID" ColumnName="FarmID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropSteps">
+            <EntityTypeMapping TypeName="DBModel.CropStep">
+              <MappingFragment StoreEntitySet="CropStep">
+                <ScalarProperty Name="CropStepID" ColumnName="CropStepID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Evaluate" ColumnName="Evaluate" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CropID" ColumnName="CropID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SeedID" ColumnName="SeedID" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DateStatiticProfits">
+            <EntityTypeMapping TypeName="DBModel.DateStatiticProfit">
+              <MappingFragment StoreEntitySet="DateStatiticProfit">
+                <ScalarProperty Name="ProfitID" ColumnName="ProfitID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CropStepID" ColumnName="CropStepID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Farms">
+            <EntityTypeMapping TypeName="DBModel.Farm">
+              <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="FarmID" ColumnName="FarmID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seeds">
+            <EntityTypeMapping TypeName="DBModel.Seed">
+              <MappingFragment StoreEntitySet="Seed">
+                <ScalarProperty Name="SeedID" ColumnName="SeedID" />
+                <ScalarProperty Name="SeedName" ColumnName="SeedName" />
+                <ScalarProperty Name="SeedType" ColumnName="SeedType" />
+                <ScalarProperty Name="Evaluate" ColumnName="Evaluate" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="PlantingMonth" ColumnName="PlantingMonth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spendings">
+            <EntityTypeMapping TypeName="DBModel.Spending">
+              <MappingFragment StoreEntitySet="Spending">
+                <ScalarProperty Name="SpendingID" ColumnName="SpendingID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CropStepID" ColumnName="CropStepID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeatherNotes">
+            <EntityTypeMapping TypeName="DBModel.WeatherNote">
+              <MappingFragment StoreEntitySet="WeatherNote">
+                <ScalarProperty Name="WeatherID" ColumnName="WeatherID" />
+                <ScalarProperty Name="CreatTime" ColumnName="CreatTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Evaluate" ColumnName="Evaluate" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="CropStepID" ColumnName="CropStepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBModel.Store.sp_dropdiagram" />
@@ -971,227 +861,17 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="DBModel.Contact">
-              <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="MoreDetail" ColumnName="MoreDetail" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="ContactPhoneNumber" ColumnName="ContactPhoneNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MainCategories">
-            <EntityTypeMapping TypeName="DBModel.MainCategory">
-              <MappingFragment StoreEntitySet="MainCategory">
-                <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
+          <EntitySetMapping Name="Steps">
+            <EntityTypeMapping TypeName="DBModel.Step">
+              <MappingFragment StoreEntitySet="Step">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="CropStepID" ColumnName="CropStepID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Oder" ColumnName="Oder" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="MainCategoryID" ColumnName="MainCategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NewsCategories">
-            <EntityTypeMapping TypeName="DBModel.NewsCategory">
-              <MappingFragment StoreEntitySet="NewsCategory">
-                <ScalarProperty Name="NewsMainCategoryID" ColumnName="NewsMainCategoryID" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="NewsCategoryID" ColumnName="NewsCategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NewsMainCategories">
-            <EntityTypeMapping TypeName="DBModel.NewsMainCategory">
-              <MappingFragment StoreEntitySet="NewsMainCategory">
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="NewsMainCategoryID" ColumnName="NewsMainCategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="DBModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Choice" ColumnName="Choice" />
-                <ScalarProperty Name="Show" ColumnName="Show" />
-                <ScalarProperty Name="Prepay" ColumnName="Prepay" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
-                <ScalarProperty Name="BackGround" ColumnName="BackGround" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductCosts">
-            <EntityTypeMapping TypeName="DBModel.ProductCost">
-              <MappingFragment StoreEntitySet="ProductCost">
-                <ScalarProperty Name="TotalForRun" ColumnName="TotalForRun" />
-                <ScalarProperty Name="Locator" ColumnName="Locator" />
-                <ScalarProperty Name="BaoHiemTNDS" ColumnName="BaoHiemTNDS" />
-                <ScalarProperty Name="PhiKiemDinh" ColumnName="PhiKiemDinh" />
-                <ScalarProperty Name="PhiSuDungDuongBo" ColumnName="PhiSuDungDuongBo" />
-                <ScalarProperty Name="PhiDangKi" ColumnName="PhiDangKi" />
-                <ScalarProperty Name="PhiTruocBa" ColumnName="PhiTruocBa" />
-                <ScalarProperty Name="VAT" ColumnName="VAT" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductDetails">
-            <EntityTypeMapping TypeName="DBModel.ProductDetail">
-              <MappingFragment StoreEntitySet="ProductDetail">
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductPreviews">
-            <EntityTypeMapping TypeName="DBModel.ProductPreview">
-              <MappingFragment StoreEntitySet="ProductPreview">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ProductPreviewID" ColumnName="ProductPreviewID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Relatives">
-            <EntityTypeMapping TypeName="DBModel.Relative">
-              <MappingFragment StoreEntitySet="Relative">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="RelativeID" ColumnName="RelativeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Requests">
-            <EntityTypeMapping TypeName="DBModel.Request">
-              <MappingFragment StoreEntitySet="Request">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DBModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Websites">
-            <EntityTypeMapping TypeName="DBModel.Website">
-              <MappingFragment StoreEntitySet="Website">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
-                <ScalarProperty Name="Zalo" ColumnName="Zalo" />
-                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
-                <ScalarProperty Name="Map" ColumnName="Map" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Hotline" ColumnName="Hotline" />
-                <ScalarProperty Name="WebsiteDetail" ColumnName="WebsiteDetail" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="WebsiteIcon" ColumnName="WebsiteIcon" />
-                <ScalarProperty Name="WebsiteFavicon" ColumnName="WebsiteFavicon" />
-                <ScalarProperty Name="WebsiteName" ColumnName="WebsiteName" />
-                <ScalarProperty Name="WebsiteID" ColumnName="WebsiteID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductRelatives">
-            <EntityTypeMapping TypeName="DBModel.ProductRelative">
-              <MappingFragment StoreEntitySet="ProductRelative">
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="DBModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="MainCategoryID" ColumnName="MainCategoryID" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="News">
-            <EntityTypeMapping TypeName="DBModel.News">
-              <MappingFragment StoreEntitySet="News">
-                <ScalarProperty Name="NewsCategoryID" ColumnName="NewsCategoryID" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Show" ColumnName="Show" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductTechInfoes">
-            <EntityTypeMapping TypeName="DBModel.ProductTechInfo">
-              <MappingFragment StoreEntitySet="ProductTechInfo">
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="StepID" ColumnName="StepID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

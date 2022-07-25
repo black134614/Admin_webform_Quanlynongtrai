@@ -4,36 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="abdfdf95f3b84fb0905877ba9e89568b" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Contact" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="DBModel.MainCategory" Width="1.5" PointX="0.75" PointY="12" />
-        <EntityTypeShape EntityType="DBModel.NewsCategory" Width="1.5" PointX="6" PointY="0.875" />
-        <EntityTypeShape EntityType="DBModel.NewsMainCategory" Width="1.5" PointX="3.75" PointY="5.375" />
-        <EntityTypeShape EntityType="DBModel.Product" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="DBModel.ProductCost" Width="1.5" PointX="7.5" PointY="17" />
-        <EntityTypeShape EntityType="DBModel.ProductDetail" Width="1.5" PointX="7.5" PointY="11" />
-        <EntityTypeShape EntityType="DBModel.ProductPreview" Width="1.5" PointX="7.5" PointY="20.75" />
-        <EntityTypeShape EntityType="DBModel.Relative" Width="1.5" PointX="10.5" PointY="12.125" />
-        <EntityTypeShape EntityType="DBModel.Request" Width="1.5" PointX="7.5" PointY="7.625" />
-        <EntityTypeShape EntityType="DBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="2.125" />
-        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="0.75" PointY="6.125" />
-        <EntityTypeShape EntityType="DBModel.Website" Width="1.5" PointX="9.75" PointY="5.125" />
-        <AssociationConnector Association="DBModel.FK_NewsCategory_NewsMainCategory" />
-        <AssociationConnector Association="DBModel.FK_ProductCost_Product" />
-        <AssociationConnector Association="DBModel.FK_ProductDetail_Product" />
-        <AssociationConnector Association="DBModel.FK_ProductPreview_Product" />
-        <AssociationConnector Association="DBModel.FK_Relative_Product" />
-        <AssociationConnector Association="DBModel.FK_Request_Product" />
-        <EntityTypeShape EntityType="DBModel.ProductRelative" Width="1.5" PointX="7.5" PointY="14.625" />
-        <AssociationConnector Association="DBModel.FK_ProductRelative_Product" />
-        <EntityTypeShape EntityType="DBModel.Category" Width="1.5" PointX="3" PointY="12" />
-        <AssociationConnector Association="DBModel.FK_Category_MainCategory" />
-        <AssociationConnector Association="DBModel.FK_Product_Category" />
-        <EntityTypeShape EntityType="DBModel.News" Width="1.5" PointX="8.25" PointY="0.75" />
-        <AssociationConnector Association="DBModel.FK_News_NewsCategory" />
-        <AssociationConnector Association="DBModel.FK_Relative_News" />
-        <EntityTypeShape EntityType="DBModel.ProductTechInfo" Width="1.5" PointX="7.5" PointY="24.375" />
-        <AssociationConnector Association="DBModel.FK_ProductTechInfo_Product" />
+      <Diagram DiagramId="ddd22cedf9bc4c5da9c4a8ce35ec2413" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Crop" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CropStep" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DateStatiticProfit" Width="1.5" PointX="12" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Farm" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Seed" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Spending" Width="1.5" PointX="12" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.WeatherNote" Width="1.5" PointX="12" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_Crop_Farm" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CropStep_Crop" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CropStep_Seed" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DateStatiticProfit_CropStep" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Spending_CropStep" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_WeatherNote_CropStep" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Farm_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Seed_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel.Step" Width="1.5" PointX="12" PointY="17.125" />
+        <AssociationConnector Association="DBModel.FK_Step_CropStep" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

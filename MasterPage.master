@@ -1,62 +1,129 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register Src="~/UserControl/ucHeader.ascx" TagPrefix="uc1" TagName="ucHeader" %>
-<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc1" TagName="ucFooter" %>
-<%@ Register Src="~/UserControl/ucContactModal.ascx" TagPrefix="uc1" TagName="ucContactModal" %>
-<%@ Register Src="~/UserControl/ucSearch.ascx" TagPrefix="uc1" TagName="ucSearch" %>
-
-
-
-
-
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="filesUpload/system/favicon.jpg" rel="shortcut icon" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome.css" rel="stylesheet" />
+    <link href="Content/all.css" rel="stylesheet" />
+    <link href="Content/animate.min.css" rel="stylesheet" />
+    <link href="Content/animate.min.css" rel="stylesheet" />
+    <link href="plugins/MDB/mdb.min.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="shortcut icon" href="fileUploads/system/Favicon.png" />
-    <link rel="stylesheet" href="Content/style.css" />
 </head>
 <body>
-    <div id="loading">
-        <img id="loading-image" src="fileUploads/system/loader.gif" alt="Loading..." />
-    </div>
-    <uc1:ucHeader runat="server" ID="ucHeader" />
-    <form class="main-content" runat="server">
-        <asp:ContentPlaceHolder ID="main_content" runat="server">
-        </asp:ContentPlaceHolder>
-    </form>
-    <uc1:ucFooter runat="server" ID="ucFooter" />
-    <div id="no-robot">
-        <a class="bg-primary" role="button" id="back-to-top">
-            <i class="fa fa-rocket text-light"></i>
-        </a>
-        <div id="message" class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Huyndai Rất vui khi được hỗ trợ bạn!" data-autopopup="20" data-width="350" data-height="420"></div>
-        <img class="please-click" src="fileUploads/system/ezgif-6-b0fb1a6c87d4.gif" />
-        <uc1:ucContactModal runat="server" ID="ucContactModal" />
-        <uc1:ucSearch runat="server" ID="ucSearch" />
-        <section id="facebook">
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0" nonce="MhII2zWM"></script>
-        </section>
-        <section id="zalo">
-            <script src="https://sp.zalo.me/plugins/sdk.js"></script>
-        </section>
-    </div>
-    <section id="script">
-        <script src="Scripts/jquery-3.0.0.min.js"></script>
-        <script src="Scripts/popper.min.js"></script>
-        <script src="Scripts/bootstrap.min.js"></script>
-        <script src="Plugins/mdb/mdb.min.js"></script>
-        <div runat="server">
-            <asp:ContentPlaceHolder ID="script_holder" runat="server">
+    <form runat="server">
+        <header>
+            <!-- Navbar -->
+            <nav class="navbar navbar-light bg-light">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Collapsible wrapper -->
+                    <div style="display: flex; align-items: center; flex-direction: row;">
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand mt-2 mt-lg-0" href="#"></a>
+                    </div>
+                    <!-- Collapsible wrapper -->
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Xin chào
+                        <strong id="UserName" runat="server"></strong>
+                        </span>
+                        <!-- Avatar -->
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                                class="rounded-circle"
+                                height="25"
+                                alt=""
+                                loading="lazy" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="#">Thông tin của bạn</a>
+                            </li>
+                            <li>
+                                <asp:LinkButton CssClass="d-block btn btn-warning" ID="Btn_Logout" OnClick="Btn_Logout_Click" Text="Đăng xuất" runat="server" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="navbar-collapse bg-secondary" id="asideNavbar">
+                <button class="btn btn-danger btn-toggle-menu" type="button">
+                    <img src="filesUpload/system/icon.png"
+                        height="30"
+                        alt=""
+                        loading="lazy" />
+                </button>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Default.aspx">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FarmList.aspx">Danh sách nông trại</a>
+                        <ul>
+                            <asp:Repeater ID="Repeater_LoadFarm" runat="server">
+                                <ItemTemplate>
+                                    <li>
+                                        <a class="nav-link" href='<%# Eval("FarmID","farmDetail.aspx?farmID={0}") %>'><%# Eval("Title") %></a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="seed.aspx">Quản Lý cây trồng</a>
+                    </li>
+                      <li class="nav-item">
+                        <span class="">Quản lý trồng trọt</span>
+                          <ul>
+                              <asp:Repeater ID="Repeater_LoadCropStep" runat="server">
+                                  <ItemTemplate>
+                                      <li>
+                                          <a class="nav-link" href='<%# Eval("CropStepID","StepManage.aspx?cropStepID={0}") %>'><%# Eval("Title") %></a>
+                                      </li>
+                                  </ItemTemplate>
+                              </asp:Repeater>
+                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <section class="main-page-content container-lg">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+        </main>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+            <a class="text-dark" href="javascript:void(0)">I am DEV . Version: Manage farm  1.0</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <section id="script">
+            <script src="Scripts/jquery-3.6.0.min.js"></script>
+            <script src="Scripts/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+            <script src="Scripts/bootstrap.js"></script>
+            <script src="plugins/MDB/mdb.min.js"></script>
+            <script src="Scripts/script.js"></script>
+            <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-        <script src="Scripts/script.js"></script>
-    </section>
+        </section>
+    </form>
 </body>
 </html>

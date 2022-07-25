@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Quản lý nông trại</title>
+    <link href="filesUpload/system/favicon.jpg" rel="shortcut icon" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome.css" rel="stylesheet" />
+    <link href="Content/all.css" rel="stylesheet" />
+    <link href="Content/animate.min.css" rel="stylesheet" />
+    <link href="plugins/MDB/mdb.min.css" rel="stylesheet" />
+    <link href="Content/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-light bg-light collapsed">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Collapsible wrapper -->
+                <div style="display: flex; align-items: center; flex-direction: row;">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img src="filesUpload/system/icon.png"
+                             height="30"
+                             alt=""
+                             loading="lazy" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#asideNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" id="form1" class="form-control" />
+                            <label class="form-label" for="form1">Search</label>
+                        </div>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+                <!-- Right elements -->
+                <div class="d-flex align-items-center">
+                    <!-- Avatar -->
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                       href="#"
+                       id="navbarDropdownMenuLink"
+                       role="button"
+                       data-mdb-toggle="dropdown"
+                       aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                             class="rounded-circle"
+                             height="25"
+                             alt=""
+                             loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">My profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="asideNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="main-page-content container-lg">
+            <div class="page-content-item">
+                <div class="item">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Thêm nông trại</li>
+                        </ol>
+                    </nav>
+                    <div class="item-form row">
+                        <table id="seedList" class="table table-data table-striped col-6">
+                            <thead>
+                                <tr>
+                                    <th>Tên hạt giống</th>
+                                    <th>Loại giống</th>
+                                    <th class="text-center">Đánh giá</th>
+                                    <th>Thời gian trồng</th>
+                                    <th class="text-center">Ngày tạo</th>
+                                    <th class="text-center">Sửa</th>
+                                    <th class="text-center">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>System Architect</td>
+                                    <td>System Architect</td>
+                                    <td>2011/04/25</td>
+                                    <td class="text-center"><a class="text-primary" href="#"><span class="fa fa-edit"></span></a></td>
+                                    <td class="text-center"><a class="text-danger" href="#"><span class="fa fa-trash"></span></a></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Tên hạt giống</th>
+                                    <th>Loại giống</th>
+                                    <th class="text-center">Đánh giá</th>
+                                    <th>Thời gian trồng</th>
+                                    <th class="text-center">Ngày tạo</th>
+                                    <th class="text-center">Sửa</th>
+                                    <th class="text-center">Xóa</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary">Thêm mới</button>
+                            <button type="button" class="btn btn-success">Xem thống kê</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-dark" href="javascript:void(0)">I am DEV . Version: Manage farm  1.0</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <section id="script">
+        <script src="Scripts/jquery-3.6.0.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="plugins/MDB/mdb.min.js"></script>
+        <script src="Scripts/jquery.dataTables.min.js"></script>
+        <script src="Scripts/dataTables.bootstrap5.min.js"></script>
+        <script src="Scripts/seedScript.js"></script>
+        <script src="Scripts/script.js"></script>
+    </section>
+</body>
+</html>
